@@ -199,6 +199,8 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: 🏗️ Build E2EE bridge (Go)
+        # E2EE là tùy chọn — app chạy được không cần bridge (giống predev script bỏ qua khi fail)
+        continue-on-error: true
         run: npm run build:bridge-e2ee
 
       - name: 🏗️ Compile TypeScript (electron)
